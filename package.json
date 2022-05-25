@@ -1,0 +1,16 @@
+{
+  "name": "Passbook History",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ sakrock007/reconciliation",
+    "create-local": "graph create --node http://localhost:8020/ sakrock007/reconciliation",
+    "remove-local": "graph remove --node http://localhost:8020/ sakrock007/reconciliation",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 sakrock007/reconciliation"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.30.0",
+    "@graphprotocol/graph-ts": "0.27.0"
+  }
+}

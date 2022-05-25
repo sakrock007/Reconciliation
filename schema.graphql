@@ -1,0 +1,48 @@
+enum DepositAction {
+  NewDeposit,
+  AddToDeposit,
+  WithdrawDeposit
+}
+
+enum LoanAction{
+  NewLoan,
+  AddCollateral,
+  WithdrawCollateral,
+  WithdrawLoan,
+  SwappedLoan,
+  LoanRepaid,
+  Liquidated
+}
+
+type Loan @entity {
+  id: ID!
+  address: String!, 
+  loanMarket: String!
+  commitment: String!
+  loanAmount: BigInt!
+  amount: BigInt!
+  market: String!
+  collateralMarket: String!
+  collateralAmount: BigInt!
+  currentMarket: String!
+  isSwapped: Boolean!
+  repaidAmount: BigInt!
+  feePaid: BigInt!
+  action: LoanAction!
+  date: String!
+  timestamp: Int!
+}
+
+type Deposit @entity {
+  id: ID!
+  address: String!
+  market: String!
+  commitment: String!
+  amount: BigInt!
+  fee: BigInt!
+  action: DepositAction!
+  date: String!
+  timestamp: Int!
+}
+
+

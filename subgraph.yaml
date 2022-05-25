@@ -1,0 +1,51 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: OpenProtocol
+    network: chapel
+    source:
+      address: "0x12bdAC56C03FA27687c6f35E60fC36BecB00850e"
+      abi: OpenProtocol
+      startBlock: 18748471
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - DepositAdded
+        - DepositWithdrawal
+        - NewDeposit
+        - Liquidation
+        - AddCollateral
+        - MarketSwapped
+        - WithdrawCollateral
+        - WithdrawPartialLoan
+        - NewLoan
+        - LoanRepaid
+      abis:
+        - name: OpenProtocol
+          file: ./abis/OpenProtocol.json
+      eventHandlers:
+        - event: DepositAdded(indexed address,indexed bytes32,indexed bytes32,uint256,uint256,uint256)
+          handler: handleDepositAdded
+        - event: DepositWithdrawal(indexed address,indexed bytes32,indexed bytes32,uint256,uint256,uint256,uint256)
+          handler: handleDepositWithdrawal
+        - event: NewDeposit(indexed address,indexed bytes32,indexed bytes32,uint256,uint256,uint256)
+          handler: handleNewDeposit
+        - event: Liquidation(indexed address,indexed bytes32,indexed bytes32,uint256,uint256)
+          handler: handleLiquidation
+        - event: AddCollateral(indexed address,indexed bytes32,indexed bytes32,uint256,uint256,uint256)
+          handler: handleAddCollateral
+        - event: MarketSwapped(indexed address,indexed bytes32,indexed bytes32,bool,bytes32,uint256,uint256)
+          handler: handleMarketSwapped
+        - event: WithdrawCollateral(indexed address,indexed bytes32,indexed bytes32,uint256,uint256,uint256)
+          handler: handleWithdrawCollateral
+        - event: WithdrawPartialLoan(indexed address,uint256,uint256,indexed bytes32,indexed bytes32,uint256)
+          handler: handleWithdrawPartialLoan
+        - event: NewLoan(indexed address,indexed bytes32,indexed bytes32,uint256,bytes32,uint256,uint256,uint256,uint256)
+          handler: handleNewLoan
+        - event: LoanRepaid(indexed address,uint256,indexed bytes32,indexed bytes32,uint256,uint256,uint256)
+          handler: handleLoanRepaid
+      file: ./src/open-protocol.ts

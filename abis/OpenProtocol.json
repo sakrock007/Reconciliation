@@ -1,0 +1,137 @@
+[
+  {
+    "type": "event",
+    "anonymous": false,
+    "name": "DepositAdded",
+    "inputs": [
+      { "type": "address", "name": "account", "indexed": true },
+      { "type": "bytes32", "name": "market", "indexed": true },
+      { "type": "bytes32", "name": "commitment", "indexed": true },
+      { "type": "uint256", "name": "amount", "indexed": false },
+      { "type": "uint256", "name": "depositId", "indexed": false },
+      { "type": "uint256", "name": "time", "indexed": false }
+    ]
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "name": "DepositWithdrawal",
+    "inputs": [
+      { "type": "address", "name": "account", "indexed": true },
+      { "type": "bytes32", "name": "market", "indexed": true },
+      { "type": "bytes32", "name": "commitment", "indexed": true },
+      { "type": "uint256", "name": "depositId", "indexed": false },
+      { "type": "uint256", "name": "amount", "indexed": false },
+      { "type": "uint256", "name": "fee", "indexed": false },
+      { "type": "uint256", "name": "timestamp", "indexed": false }
+    ]
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "name": "NewDeposit",
+    "inputs": [
+      { "type": "address", "name": "account", "indexed": true },
+      { "type": "bytes32", "name": "market", "indexed": true },
+      { "type": "bytes32", "name": "commitment", "indexed": true },
+      { "type": "uint256", "name": "amount", "indexed": false },
+      { "type": "uint256", "name": "depositId", "indexed": false },
+      { "type": "uint256", "name": "time", "indexed": false }
+    ]
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "name": "Liquidation",
+    "inputs": [
+      { "type": "address", "name": "account", "indexed": true },
+      { "type": "bytes32", "name": "market", "indexed": true },
+      { "type": "bytes32", "name": "commitment", "indexed": true },
+      { "type": "uint256", "name": "amount", "indexed": false },
+      { "type": "uint256", "name": "time", "indexed": false }
+    ]
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "name": "AddCollateral",
+    "inputs": [
+      { "type": "address", "name": "account", "indexed": true },
+      { "type": "bytes32", "name": "market", "indexed": true },
+      { "type": "bytes32", "name": "commitment", "indexed": true },
+      { "type": "uint256", "name": "id", "indexed": false },
+      { "type": "uint256", "name": "amount", "indexed": false },
+      { "type": "uint256", "name": "timestamp", "indexed": false }
+    ]
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "name": "MarketSwapped",
+    "inputs": [
+      { "type": "address", "name": "account", "indexed": true },
+      { "type": "bytes32", "name": "loanMarket", "indexed": true },
+      { "type": "bytes32", "name": "commitment", "indexed": true },
+      { "type": "bool", "name": "isSwapped", "indexed": false },
+      { "type": "bytes32", "name": "currentMarket", "indexed": false },
+      { "type": "uint256", "name": "amount", "indexed": false },
+      { "type": "uint256", "name": "timestamp", "indexed": false }
+    ]
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "name": "WithdrawCollateral",
+    "inputs": [
+      { "type": "address", "name": "account", "indexed": true },
+      { "type": "bytes32", "name": "market", "indexed": true },
+      { "type": "bytes32", "name": "commitment", "indexed": true },
+      { "type": "uint256", "name": "amount", "indexed": false },
+      { "type": "uint256", "name": "id", "indexed": false },
+      { "type": "uint256", "name": "timestamp", "indexed": false }
+    ]
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "name": "WithdrawPartialLoan",
+    "inputs": [
+      { "type": "address", "name": "account", "indexed": true },
+      { "type": "uint256", "name": "id", "indexed": false },
+      { "type": "uint256", "name": "amount", "indexed": false },
+      { "type": "bytes32", "name": "market", "indexed": true },
+      { "type": "bytes32", "name": "commitment", "indexed": true },
+      { "type": "uint256", "name": "timestamp", "indexed": false }
+    ]
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "name": "NewLoan",
+    "inputs": [
+      { "type": "address", "name": "account", "indexed": true },
+      { "type": "bytes32", "name": "loanMarket", "indexed": true },
+      { "type": "bytes32", "name": "commitment", "indexed": true },
+      { "type": "uint256", "name": "loanAmount", "indexed": false },
+      { "type": "bytes32", "name": "collateralMarket", "indexed": false },
+      { "type": "uint256", "name": "collateralAmount", "indexed": false },
+      { "type": "uint256", "name": "loanId", "indexed": false },
+      { "type": "uint256", "name": "feePaid", "indexed": false },
+      { "type": "uint256", "name": "time", "indexed": false }
+    ]
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "name": "LoanRepaid",
+    "inputs": [
+      { "type": "address", "name": "account", "indexed": true },
+      { "type": "uint256", "name": "id", "indexed": false },
+      { "type": "bytes32", "name": "market", "indexed": true },
+      { "type": "bytes32", "name": "commitment", "indexed": true },
+      { "type": "uint256", "name": "amount", "indexed": false },
+      { "type": "uint256", "name": "repaidAmount", "indexed": false },
+      { "type": "uint256", "name": "timestamp", "indexed": false }
+    ]
+  }
+]
