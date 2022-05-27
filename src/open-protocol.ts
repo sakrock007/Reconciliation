@@ -24,11 +24,11 @@ export function handleDepositAdded(event: DepositAdded): void {
   let deposit = new Deposit(event.transaction.hash.toHex());
 
   deposit.address = event.params.account.toHexString();
-  deposit.market = event.params.market.toString();
-  deposit.commitment = event.params.commitment.toString();
+  deposit.market = event.params.market.toHexString();
+  deposit.commitment = event.params.commitment.toHexString();
   deposit.amount = event.params.amount;
   deposit.fee = new BigInt(0);
-  deposit.action = "AddToDeposit";
+  deposit.action = "DepositAdded";
   deposit.date = date.toString();
   deposit.timestamp = event.params.time.toI32();
   deposit.save();
@@ -40,11 +40,11 @@ export function handleDepositWithdrawal(event: DepositWithdrawal): void {
   let deposit = new Deposit(event.transaction.hash.toHex());
 
   deposit.address = event.params.account.toHexString();
-  deposit.market = event.params.market.toString();
-  deposit.commitment = event.params.commitment.toString();
+  deposit.market = event.params.market.toHexString();
+  deposit.commitment = event.params.commitment.toHexString();
   deposit.amount = event.params.amount;
   deposit.fee = event.params.fee;
-  deposit.action = "WithdrawDeposit";
+  deposit.action = "DepositWithdrawal";
   deposit.date = date.toString();
   deposit.timestamp = event.params.timestamp.toI32();
   deposit.save();
@@ -56,8 +56,8 @@ export function handleNewDeposit(event: NewDeposit): void {
   let deposit = new Deposit(event.transaction.hash.toHex());
 
   deposit.address = event.params.account.toHexString();
-  deposit.market = event.params.market.toString();
-  deposit.commitment = event.params.commitment.toString();
+  deposit.market = event.params.market.toHexString();
+  deposit.commitment = event.params.commitment.toHexString();
   deposit.amount = event.params.amount;
   deposit.fee = new BigInt(0);
   deposit.action = "NewDeposit";
@@ -78,10 +78,10 @@ export function handleLiquidation(event: Liquidation): void {
 
   loan.address = event.params.account.toHexString();
   loan.loanMarket = "";
-  loan.commitment = event.params.commitment.toString();
+  loan.commitment = event.params.commitment.toHexString();
   loan.loanAmount = new BigInt(0);
   loan.amount = event.params.amount;
-  loan.market = event.params.market.toString();
+  loan.market = event.params.market.toHexString();
   loan.collateralMarket = "";
   loan.collateralAmount = new BigInt(0);
   loan.currentMarket = "";
@@ -103,10 +103,10 @@ export function handleAddCollateral(event: AddCollateral): void {
 
   loan.address = event.params.account.toHexString();
   loan.loanMarket = "";
-  loan.commitment = event.params.commitment.toString();
+  loan.commitment = event.params.commitment.toHexString();
   loan.loanAmount = new BigInt(0);
   loan.amount = event.params.amount;
-  loan.market = event.params.market.toString();
+  loan.market = event.params.market.toHexString();
   loan.collateralMarket = "";
   loan.collateralAmount = new BigInt(0);
   loan.currentMarket = "";
@@ -128,14 +128,14 @@ export function handleMarketSwapped(event: MarketSwapped): void {
 
 
   loan.address = event.params.account.toHexString();
-  loan.loanMarket = event.params.loanMarket.toString();
-  loan.commitment = event.params.commitment.toString();
+  loan.loanMarket = event.params.loanMarket.toHexString();
+  loan.commitment = event.params.commitment.toHexString();
   loan.loanAmount = new BigInt(0);
   loan.amount = event.params.amount;
   loan.market = "";
   loan.collateralMarket = "";
   loan.collateralAmount = new BigInt(0);
-  loan.currentMarket = event.params.currentMarket;
+  loan.currentMarket = event.params.currentMarket.toHexString();
   loan.isSwapped = event.params.isSwapped;
   loan.repaidAmount = new BigInt(0);
   loan.feePaid = new BigInt(0);
@@ -154,10 +154,10 @@ export function handleWithdrawCollateral(event: WithdrawCollateral): void {
 
   loan.address = event.params.account.toHexString();
   loan.loanMarket = "";
-  loan.commitment = event.params.commitment.toString();
+  loan.commitment = event.params.commitment.toHexString();
   loan.loanAmount = new BigInt(0);
   loan.amount = event.params.amount;
-  loan.market = event.params.market.toString();
+  loan.market = event.params.market.toHexString();
   loan.collateralMarket = "";
   loan.collateralAmount = new BigInt(0);
   loan.currentMarket = "";
@@ -179,10 +179,10 @@ export function handleWithdrawPartialLoan(event: WithdrawPartialLoan): void {
 
   loan.address = event.params.account.toHexString();
   loan.loanMarket = "";
-  loan.commitment = event.params.commitment.toString();
+  loan.commitment = event.params.commitment.toHexString();
   loan.loanAmount = new BigInt(0);
   loan.amount = event.params.amount;
-  loan.market = event.params.market.toString();
+  loan.market = event.params.market.toHexString();
   loan.collateralMarket = "";
   loan.collateralAmount = new BigInt(0);
   loan.currentMarket = "";
@@ -203,8 +203,8 @@ export function handleNewLoan(event: NewLoan): void {
   let loan = new Loan(event.transaction.hash.toHex());
 
   loan.address = event.params.account.toHexString();
-  loan.loanMarket = event.params.loanMarket.toString();
-  loan.commitment = event.params.commitment.toString();
+  loan.loanMarket = event.params.loanMarket.toHexString();
+  loan.commitment = event.params.commitment.toHexString();
   loan.loanAmount = event.params.loanAmount;
   loan.amount = new BigInt(0);
   loan.market = "";
@@ -228,10 +228,10 @@ export function handleLoanRepaid(event: LoanRepaid): void {
   let loan = new Loan(event.transaction.hash.toHex());
   loan.address = event.params.account.toHexString();
   loan.loanMarket = "";
-  loan.commitment = event.params.commitment.toString();
+  loan.commitment = event.params.commitment.toHexString();
   loan.loanAmount = new BigInt(0);
   loan.amount = event.params.amount;
-  loan.market = event.params.market.toString();
+  loan.market = event.params.market.toHexString();
   loan.collateralMarket = "";
   loan.collateralAmount = new BigInt(0);
   loan.currentMarket = "";

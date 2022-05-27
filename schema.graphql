@@ -1,7 +1,7 @@
 enum DepositAction {
   NewDeposit,
-  AddToDeposit,
-  WithdrawDeposit
+  DepositAdded,
+  DepositWithdrawal
 }
 
 enum LoanAction{
